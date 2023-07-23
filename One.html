@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        *
+        {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family:Georgia, 'Times New Roman', Times, serif;
+        }
+        header{
+            position:absolute;
+            top:0;
+            left:0;
+            width:100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 100px;
+            z-index:10;
+            background:#5b639c;
+        }
+        header .logo{
+            border-radius: 50%;
+            width:3em;
+            color:#fff;
+            position:relative;
+            font-size:1.5em;
+            text-decoration: none;
+        }
+        header .navbar{
+            display:flex;
+            justify-content:center;
+            flex-wrap: wrap;
+            margin: 10px 0;
+        }
+        header .navbar li{
+            list-style: none;
+            margin: 0 10px;
+        }
+        header .navbar li a{
+            text-decoration: none;
+            color: #fff;
+            font-weight: 500;
+            letter-spacing: 1px;
+            
+        }
+        header .navbar li a:hover{
+            color:#ffc107;
+        }
+        header .search{
+            position: relative;
+            height: 40px;
+            width:300px;
+        }
+        header .search input{
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            color:#fff;
+            background: transparent;
+            outline: none;
+            border: 1px solid #fff;
+            border-radius: 4px;
+            padding:0 10px 0 45px;
+
+        }
+        header .search input::placeholder{
+            color:#fff;
+            font-weight: bold;
+        }
+        header .search .fa-search{
+            position: absolute;
+            top: 50%;
+            left: 10px;
+            transform: translateY(-50%);
+            color:#fff;
+            border-right: 1px solid #fff;
+            padding-right :10px;
+        }
+        .banner{
+            background: #757dbb;        
+            padding:200px 100px 100px;
+            min-height:100vh;
+            display:flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .banner .content{
+            max-width: 700px;
+        }
+        .banner .content h2{
+            font-size:3em;
+            color:#fff;
+        }
+        .banner .content p{
+            font-size: 1 em;
+            color:#fff;
+        }
+        .banner .content a{
+            background: #fff;
+            color:#757dbb;
+            padding: 8px 20px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 20px;
+            display: inline-block;
+        }
+        .banner .land{
+            border-radius: 50%;
+            filter: invert(1);
+            max-width: 400px;
+            margin-left: 50px;
+        }
+        @media (max-width:900px){
+            header{
+                padding:10px 20px;
+                flex-direction: column;
+            }
+            .banner{
+                padding: 150px 20px 50px;
+                flex-direction: column-reverse;
+            }
+            .banner .land{
+                max-width: 80%;
+                margin-left: 0;
+            }
+            .banner.content h2{
+                font-size:2 em;
+            }
+        }
+        @media (max-width:600px){
+            header .search{
+                width:100%;
+            }
+            .banner .land{
+                margin-top: 30px;
+            }
+        }
+        @media (min-width:600px) and (max-width:900px){
+            .banner .land{
+                max-width: 70%;
+                margin-left: 0;
+                position: relative;
+                top: 20px;
+            }
+            .banner .content{
+                position: relative;
+                top: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a  href=""><img class="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3dJ5o9rckEeygXLWerIbzmNCjihxRD27842ZTQpKlvuf_ddGuBNBlEPrk703i4ljFDrs&usqp=CAUs" alt=""></a>
+        <ul class="navbar">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Tv Shows</a></li>
+            <li><a href="#">Movies</a></li>
+            <li><a href="#">Latest</a></li>
+            <li><a href="#">My list</a></li>
+        </ul>
+        <div class="search">
+            <input type="text" placeholder="Search">
+            <i class="fa fa-search" aria-hidden="true"></i>
+        </div>
+    </header>
+    <div class="banner">
+        <div class="content">
+            <h2>Ashish Responsive Web 1</h2>
+            <br>
+            <p> <b>Banana</b> is an elongated, edible fruit – botanically a berry[1][2] – produced by several kinds of large herbaceous flowering plants in the genus Musa.[3] In some countries, bananas used for cooking may be called "plantains", distinguishing them from dessert bananas. The fruit is variable in size, color, and firmness, but is usually elongated and curved, with soft flesh rich in starch covered with a rind, which may be green, yellow, red, purple, or brown when ripe. The fruits grow upward in clusters near the top of the plant. Almost all modern edible seedless (parthenocarp) bananas come from two wild species – Musa acuminata and Musa balbisiana. The scientific names of most cultivated bananas are Musa acuminata, Musa balbisiana, and Musa × paradisiaca for the hybrid Musa acuminata × M. balbisiana, depending on their genomic constitution. The old scientific name for this hybrid, Musa sapientum, is no longer used. 
+            </p>
+            <a href="#">Read only</a>
+        </div>
+        <img src="https://us.123rf.com/450wm/rolandtopor/rolandtopor2201/rolandtopor220100010/180102653-wild-lion-head-with-crown-and-logo-icon-vector-illustration.jpg?ver=6" class="land"alt="">
+    </div>
+</body>
+</html>
