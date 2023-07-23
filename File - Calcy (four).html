@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator</title>
+    <style>
+        *{
+    box-sizing:border-box;
+}
+body{
+    height:70vh;
+    width:100%;
+    display:grid;
+    place-items:center;
+}
+.calculator {
+height:400px;
+width:250px;
+    border:1px solid black;
+    box-shadow:2px 2px 4px;
+    border-radius:20px;
+    margin:4px auto;
+    padding:8px;
+    display:flex;
+    justify-content:center;
+    background-color:#5775ad
+    
+}
+ input{
+    width:220px;
+    height:120px;
+    border-radius:22px;
+    font-color:solid black;
+    font-size:30px;
+    background-color:#8ca085;
+    border:1px solid black;
+    margin:6px ;
+}
+    .button{
+    width:50px;
+    border-radius:55px;
+    font-size:30px;
+    margin:2px;
+    padding:3px;
+    box-shadow:2px 2px 2px;
+    }
+    #but{
+        background:#ffd26adf;
+        font-size:20px;
+         
+    }
+    .hello{
+        display:flex-end;
+       
+    }
+    @media(min:400px){
+        
+    }
+    
+    </style>
+    
+</head>
+<body>
+    <div class="calculator">
+        <div class="calcy">
+            <input type="text" placeholder="0" id="result">
+            <div class="hello">
+                <button onclick="clearResult()" class="button"id="but">AC
+                </button>
+                <button
+                onclick="appendToResult('(')" class="button"id="but">(
+                </button>
+                <button onclick="appendToResult(')')" class="button"id="but">)
+                </button>
+                <button 
+                onclick="deleteDigit()" class="button"id="but">DEL
+                </button>            </div>
+        
+        <div class="hello">
+                <button onclick="appendToResult('7')" class="button">7
+                </button>
+                <button onclick="appendToResult('8')"class="button">8
+                </button>
+                <button onclick="appendToResult('9')" class="button">9
+                </button>
+                <button onclick="appendToResult('*')" class="button"id="but">*
+                </button>            </div>
+        
+        <div class="hello">
+                <button
+                onclick="appendToResult('4')" class="button">4
+                </button>
+                <button onclick="appendToResult('5')"class="button">5
+                </button>
+                <button onclick="appendToResult('6')"class="button">6
+                </button>
+                <button onclick="appendToResult('-')" class="button"id="but">-
+                </button>            </div>
+        
+        <div class="hello">
+                <button onclick="appendToResult('1')" class="button">1
+                </button>
+                <button                onclick="appendToResult('2')"class="button">2
+                </button>
+                <button onclick="appendToResult('3')"class="button">3
+                </button>
+                <button onclick="appendToResult('/')" class="button"id="but">/
+                </button>            </div>
+        
+        
+       <div class="hello">
+                <button                onclick="appendToResult('0')"class="button">0
+                </button>
+                <button onclick="appendToResult('.')"class="button">.
+                </button>
+                <button onclick="calculateResult()"class="button">=
+                </button>
+                <button onclick="appendToResult('+')" class="button"id="but">+
+                </button>          
+                  </div>
+        </div> 
+          </div>
+          <script>
+              function appendToResult(value) {
+      var result = document.getElementById("result");
+      result.value += value;
+    }
+
+    function calculateResult() {
+      var result = document.getElementById("result");
+      var expression = result.value;
+
+      try {
+        result.value = eval(expression);
+      } catch (error) {
+        result.value = "Error";
+      }
+    }
+
+    function clearResult() {
+      var result = document.getElementById("result");
+      result.value = "";
+    }
+    
+    function deleteDigit() {
+      var result = document.getElementById("result");
+    result.value = result.value.slice(0, -1);
+    }
+          </script>
+</body>
+</html>
