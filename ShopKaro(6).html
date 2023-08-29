@@ -1,0 +1,1605 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShopKaro</title>
+    
+    <style>
+      *{
+        padding:0;
+        margin:0;
+      }
+      
+      body{
+        height:100vh;
+        width:100vw;
+        background:rgba(228, 224, 224, 0.911);
+        overflow-x:hidden;
+      }
+                                            /* Header Section */
+                                           /* nav wala part hai ye */
+      nav{
+        width:100vw;
+        background:rgb(87, 90, 90);
+        z-index:-1;
+        
+      }
+       
+      nav ul{
+        display:flex;
+        justify-content:space-around ;
+        flex-wrap:wrap;
+        align-items:center;
+      }
+
+      nav ul li{
+         list-style:none ;
+       
+      }
+
+      nav ul li a{
+        text-decoration: none;
+        font-size:1.3rem;
+        color:antiquewhite;
+        font-weight: 600;
+      }
+
+      nav ul li a h1{
+        font-size:2rem;
+        color:antiquewhite;
+      }
+
+      nav ul li  h1:hover{
+        background-image: linear-gradient(to right, #FF0000, #00FF00, #0000FF);
+        background-clip: text;
+        color: transparent;
+      }
+      
+      
+                                          /* search wala hai ye */
+      .searching{
+        width:20rem;
+        height:2.3rem;
+        border-radius:8px;
+        margin-top: -2px;
+      }
+
+      .searching input{
+        width:19rem;
+        height:2.3rem;
+        border-radius:8px;
+        padding-left:46px;
+        position:absolute;
+        margin-left: -7px;
+        font-size:1rem;
+      }
+
+      .searching input::placeholder{
+        font-size:1rem;
+      }
+
+      .dhundo {
+        position:absolute;
+        outline:none;
+        border-right:2px solid rgb(145, 145, 207);
+        border-radius: 2px;
+        padding-right: 8px;
+        margin-top: -5px;
+        color:rgb(145, 145, 207);
+      }
+
+                                
+                                          /* download wala hai ye */
+       
+
+      .download-section ul{
+        display:flex;
+        flex-direction:column;
+        background: wheat;
+        padding:9px;
+        border-radius:8px;
+        position:absolute;
+        top:4.2rem;
+        visibility: hidden;
+        z-index:9;
+        box-shadow: 2px 3px 3px 1px rgb(172, 172, 245);
+      }
+
+      .download-section ul li{  
+        width:10rem;
+        height:2.8rem;
+      }
+
+      .download-section:hover ul{
+        visibility: visible;
+        
+      }
+
+      .download-section:hover .phone{
+        transform:rotate(3600deg);
+        transition: transform 3s ease-in-out ;
+      }
+
+      .logotextonly:hover .phone{
+        color:rgb(21, 252, 144);
+      }
+
+      .logotextonly:hover p{
+        color:rgb(76, 208, 231,1);
+      }
+
+      .play-iphone{
+        font-size:0.8rem;
+        width:10rem;
+        background:rgb(71, 70, 70);
+        border-radius:8px;
+        margin:0.3rem;
+      }
+
+      .logotextonly{
+        width:8.5rem;
+        height:3.9rem;
+        margin-top:10px;
+
+      }
+
+      .logotextonly p{
+        float:right;
+        font-size:1.2rem;
+        color:antiquewhite;
+        font-weight:600;
+        padding-top: 3px;
+      }
+
+
+      .phone{
+        color:antiquewhite;
+        float:left;
+        margin-top: 1rem;
+      }
+                                            /* profile hain ye sirf */
+
+      .Profile{
+        height:3rem;
+        width:4rem;
+      }
+
+      .logotext{
+        display:flex;
+        justify-content:center;
+        flex-wrap: wrap;
+        align-items: center;
+        height:2rem;
+        color:antiquewhite;
+        
+      }
+      .logotext p{
+        font-size:1.3rem;
+        font-weight: 600;
+      }
+
+      .logotext:hover .person{
+        transform: rotate(3600deg);
+        transition: transform 3s ease-in-out ;
+      }
+
+      .Profile:hover .form{
+        visibility:visible;
+        transform:translateY(0%);
+      }
+      .Profile:hover .logotext a{
+       color:rgb(76, 208, 231,1);
+      }
+
+      .form{
+        height: 270px;
+        width: 200px;
+        background: white;
+        display:grid;
+        place-items:center;
+        border-radius:1.1rem;
+        position:absolute;
+        top: 3.9rem;
+        padding:5px;
+        box-shadow: -1px 2px 2px 2px rgb(135, 135, 177);
+        visibility:hidden;  
+        z-index:9;
+        transform:translateY(5%);
+        transition:0.2s;
+      }
+
+      .form input{
+        height:30px;
+        width:90%;
+        /* border-radius:5px; */
+        font-size:medium;
+        padding-left: 9px;
+        border:none;
+        border-bottom: 2px solid rgb(111, 112, 172);
+        outline:none;
+      }
+
+      .form a{
+        color:rgb(96, 96, 173);
+        font-size:1rem;
+      }
+
+      .form input::placeholder{
+        padding-left:5px;
+        color:rgb(60, 60, 114);
+      }
+
+      .form .submit{
+        width:80%;
+        outline:none;
+        height:30px;
+        color:rgb(133, 70, 192);
+        border-radius:5px;
+      }
+
+      .submit p{
+        color:rgb(69, 69, 156);
+        font-size:15px;
+      }
+    
+                                                     /* Cart wala hai */
+      .cart a{
+        color:antiquewhite;
+        display:grid;
+        place-items: center;
+      }
+      nav ul li:nth-child(5):hover .cart a{
+        color:rgb(76, 208, 231,1);
+      } 
+      .cart a input{
+        width: 1.3rem;
+        border-radius: 50%;
+        color: white;
+        background: red;
+        border: 1px solid red;
+        position: absolute;
+        font-size: 0.9rem;
+        font-weight: bold;
+        top: 2rem;
+        padding-left: 6px;
+        margin-right: -7px;
+        right:3rem;
+        display:none;
+      }
+
+      .cart-symbol{
+        height:1.5rem;
+      }
+/*------------------------------------------------- scroller------------------------------------------------------------ */
+      .slider-container {
+          position: relative;
+          overflow: hidden;
+          width: 100vw;
+          height: 30vw; 
+        }
+        
+      .slider {
+          display: flex;
+          width: 100%;
+          height: 100%;
+          transition: transform 0.3s ease;
+        }
+        
+      .slide {
+        display:flex;
+        flex: 0 0 100%;
+        height: 100%;
+        }
+
+      .slide img{
+        height:100%;
+        width:100%;
+        object-fit:contain;
+        padding: 0 0.8rem 0 0.8rem;
+      }
+
+      .prev-btn,
+      .next-btn {
+       position: absolute;
+       top: 50%;
+       transform: translateY(-50%);
+       padding: 0.8rem 1.2rem;
+       background-color: #007BFF;
+       color: #fff;
+       border: none;
+       border-radius: 4px;
+       cursor: pointer;
+     }
+     
+     .prev-btn {
+       left: 1.2rem;
+     }
+
+      .next-btn {
+        right: 1.2rem;
+      }
+      /* -------------------------------------* categories yaha se shuru hai-------------------------------------------*/ 
+       .categories{
+        width: 100vw;
+        height: 8rem;
+        overflow-y: hidden;
+        display: grid;
+        place-items: center;
+       
+       }
+
+       .categories ul{
+        width:98vw;
+        max-width:100%;
+        height:100%;
+        display:grid;
+        background:white;
+        gap:1.1rem;
+        grid-auto-flow: column;
+        grid-auto-columns:8.6%;
+        list-style:none;
+        place-items: center;
+        overflow-x: auto;
+        scrollbar-width: none;
+       }
+
+       .categories ul::-webkit-scrollbar{
+        display:none
+       }
+
+       .categories ul li a{
+        display: grid;
+        grid-template-rows: min-content;
+        padding:8px;
+        place-items: center;
+        text-decoration:none;
+        color: #08714d;
+       }
+
+       .categories ul li a img{
+        width: fit-content;
+        height:69px;
+        mix-blend-mode: multiply;
+        aspect-ratio:3/2;
+        object-fit:contain;
+       }
+
+       .categories ul li a p{
+        background: transparent;
+        font-weight: bold;
+        font-size: 0.9em;
+        margin-top: 15px;
+        display: flex;
+        text-decoration:none;
+       }
+
+       .symbol-down{
+        font-weight:bolder;
+        padding-left:5px;
+        margin:auto;
+       }
+      
+       .randi{
+        position:absolute ;
+        width:fit-content !important;
+        height:fit-content !important;
+        display:flex !important;
+        flex-direction:column;
+        gap:0 !important;
+        top:36.3rem;
+        box-shadow: 2px 2px 2px 2px rgb(193, 228, 235);
+        border-radius:0.2rem;
+        overflow:hidden;
+        visibility:hidden;
+       }
+
+       .randi li{
+        width:fit-content;
+        font-size: 0.7rem;
+        font-weight: 300;
+        margin:-0.2rem auto;
+        color: black;
+       }
+       
+       .randi li a{
+        text-decoration: none;
+       } 
+       .randi li a:hover{
+        background:#70f0e9;
+       }
+
+       .categories ul li:nth-child(3):hover #chadi-list{
+        visibility: visible;
+       }
+
+       .categories ul li:nth-child(4):hover #app-list{
+        visibility: visible;
+       }
+
+       .categories ul li:nth-child(5):hover #fur-list{
+        visibility: visible;
+       }
+
+       .categories ul li:nth-child(9):hover #toy-list{
+        visibility: visible;
+       }
+
+       .categories ul li:nth-child(10):hover #acc-list{
+        visibility: visible;
+       }
+       /* -----------------------------------------------highest deal-------------------------------------------------- */
+         .highest-deal{
+          width:100vw;
+          height:auto;
+          max-width:100%;
+          margin:0.5rem 0;
+          display:grid;
+          justify-items: center;
+          align-items: center;
+         }
+
+         .highest-deal img{
+          width:98vw;
+          height:auto;
+          max-width:100%;
+         }
+        /* -------------------------------------------Group-category Chudap--------------------------------------------- */
+         .group-category{
+          max-width:100%;
+          height:auto;
+          width:100vw;
+         }
+
+         .group-category ul{
+          width:100%;
+          display:grid;
+          grid-template-columns: 1fr 1fr 1fr 1fr;
+         }
+
+         .group-category ul li{
+          width:87%;
+          margin:1% auto  2%;
+          background:#fff;
+          padding:2%;
+          border: solid rgb(130, 130, 182);
+          flex-direction: column;
+          border-radius:30px 2px ;
+          display:flex;
+          flex-direction:column;
+          justify-content: center;
+          align-items: center;
+          height:19rem;
+         }
+
+         .group-category ul li a{
+          width:100%;
+          max-width:fit-content;
+          height:auto;
+          object-fit: cover;
+          text-decoration:none;
+         }
+
+         .group-category ul li a:hover{
+          color:#00FF00;
+         }
+
+         .tv-pic{
+          width:98%;
+          aspect-ratio:3/2;
+          height:auto;
+         }
+
+         .group-category ul li div{
+           display:grid;
+           grid-template-columns: repeat(2,1fr);
+           grid-template-rows: repeat(2,1fr);
+           gap:1rem; 
+           padding:0.5rem 0.5rem;
+         }
+
+         .group-category ul li div a{
+           text-decoration:none;
+           text-align:start;
+           font-size:15px;
+           display:flex;
+           flex-direction:column;
+           color: black;
+         }
+         
+         .same-pic{
+          width:100%;
+          height:auto;
+         }
+
+         .group-category ul li:nth-child(1){
+           gap:7%;
+           
+         }
+
+         .group-category ul li:nth-child(2){
+          gap:6.3%;
+        }
+
+        .group-category ul li:nth-child(3){
+          gap:6.3%;
+        }
+
+        .group-category ul li:nth-child(4){
+          gap:4.5%;
+        }
+        /* ---------------------------------------------------fur-head-------------------------------------------------- */
+        .fur-head{
+          width:96vw;
+          height:auto;
+          margin:0 0 0 1%;
+          padding:1%;
+          display:flex;
+          justify-content:center;
+          background: #fff;
+        }
+
+        .fur-head svg{
+          margin:1%;
+          height:2rem;
+        }
+
+        .fur-head h1{
+          margin-top:0.8%;
+          background-image: linear-gradient(to right,orange, rgb(95, 233, 95));
+          background-clip: text;
+          color: transparent;
+          font-size:190%;
+        }
+        /* -----------------------------------------------------fur-category------------------------------ -----------*/
+        .fur-category{
+          position: relative;
+          overflow: hidden;
+          width: 98vw;
+          height: 21vw;
+          margin:1vw; 
+        }
+
+        .fur-contain{
+          display: flex;
+          width: 100%;
+          height: 100%;
+          transition: transform 0.3s ease;
+          column-gap: 1%;
+        }
+
+        .fur-slider{
+          display:flex;
+          flex-direction:column;
+          flex: 0 0 19%;
+          height: 89%;
+          background:#fff;
+          border:2px solid rgb(130, 130, 182);
+          padding:1vw;
+          align-items:center;
+          border-radius:  9% 1% 9% 1%;
+        }
+
+        .fur-slider img{
+          height:71%;
+          width:100%;
+          aspect-ratio: 3/4;
+          mix-blend-mode: multiply;
+          object-fit:contain; 
+          margin:1%;
+        }
+
+        .fur-slider h4{
+          padding:1%;
+        }
+
+        .fur-slider p{
+          padding:1%;
+        }
+
+        .fur-slider button{
+          padding:1%;
+          outline:none;
+          width:45%;
+          height:20%;
+          border:none;
+          background:#56a1f1;
+          border-radius:88% 91%;
+        }
+
+        .previous-btn{
+          left:0.5rem;
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          padding: 0.8rem 1.2rem;
+          background-color: #007BFF;
+          color: #fff;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          z-index:2;
+          opacity:0.3;
+        }
+
+        .previous-btn:hover{
+          opacity:1
+        }
+
+        .nexts-btn{
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          padding: 0.8rem 1.2rem;
+          background-color: #007BFF;
+          color: #fff;
+          border: none;
+          border-radius: 4px;
+          cursor: pointer;
+          z-index:2;
+          right:0.5rem;
+          opacity:0.3;
+        }
+
+        .nexts-btn:hover{
+          opacity:1
+        }
+        /* ----------------------------------------------Footer Hai--------------------------------------------------- */
+        footer{
+          display:flex;
+          width:100vw;
+          justify-content: center;
+          align-items: center;
+          /* flex-direction:column; */
+          height:15vh;
+          background:rgb(87, 90, 90);
+          color:white;
+          font-size:75%;
+        }
+
+        footer a{
+          text-decoration: none;
+          color:#fff;
+        }
+
+       /* -----------------------------------------------media queries yaha se chalu hoga------------------------------- */
+   /* ----------------------------------------------------1000px max----------------------------------------- */
+        @media(max-width:1000px) and (min-width:801px){
+          .searching input {
+            width: 17rem;
+          }
+          .logotextonly {
+           width: 8rem;
+          }
+          .logotextonly p {
+           font-size: 1.1rem;
+          }
+          .logotext p {
+           font-size: 1.1rem;
+          }
+          nav ul li a {
+          font-size: 1.1rem;
+          }
+          .form{
+            right:3rem;
+          }
+          .cart a input{
+            right: 2rem;
+          }
+          .categories ul{
+            gap:1.9rem;
+          }
+
+          .randi{
+            top: 30.8rem;
+          }
+          #toy-list{
+            left:77%;
+          }
+          #acc-list{
+            left:87%;
+          }
+
+          .group-category ul li:nth-child(1) {
+            gap: 12%;
+          }
+
+        .fur-slider{
+          flex: 0 0 22.49%;
+        }
+        }
+     /* -----------------------------------------------800px max---------------------------------------------- */
+          @media(max-width:800px){
+            nav ul{
+              padding-top: 4px;
+            }
+            nav ul li:nth-child(1){
+              flex: 1 0 41%;
+              padding: 2px   !important;
+            }
+            nav ul li:nth-child(1) a{
+              display:flex;
+              align-items:center;
+              justify-content: center;
+            }
+            nav ul li:nth-child(2){
+              flex: 1 0 48%;
+              padding: 2px 10px 0 0 !important;
+            }
+
+            .download-section ul{
+              top:7rem
+            }
+            
+            .form{
+              top:6.9rem;
+            }
+             
+            .cart a input{
+              top:5rem;
+              right:6rem;
+            }
+            .categories ul{
+              gap:3.1rem;
+            }
+            .categories ul li{
+              padding-left:25px;
+            }
+            .categories ul li ul li{
+              padding: 0px 1px 7px 1px !important;
+            }
+            .randi{
+              top:29.8rem;
+            }
+            #toy-list{
+              left:69%;
+              padding: 0px 9px 7px 12px !important;
+            }
+            #acc-list{
+              left:83%;
+              padding: 0px 9px 7px 12px !important;
+            }
+
+            .group-category ul{
+              grid-template-columns: 1fr 1fr 1fr;
+            }
+            .group-category ul li:nth-child(2){
+              gap:2%;
+            }
+            .group-category ul li:nth-child(3){
+              gap:4.8%;
+            }
+            .group-category ul li:nth-child(4){
+              gap:1%;
+            }
+            .tv-pic{
+              height:106%;
+            }
+            .fur-head h1{
+              font-size:180%;
+            }
+            .fur-head svg{
+              height:28px;
+            }
+            .fur-slider{
+              flex: 0 0 26.35%;
+            }
+            .fur-category{
+              height:25vw;
+            }
+          }
+    /* ------------------------------------------------700px max------------------------------------------------ */
+          @media(max-width:700px){
+            .cart a input{
+              right:5.1rem;
+            }
+            .randi{
+              top:27.8rem;
+            }
+            #chadi-list{
+              left:10%;
+            }
+            #app-list{
+              left:20%;
+            }
+            #fur-list{
+              left:30%;
+            }
+            #toy-list{
+              left:68%;
+            }
+            #acc-list{
+              left:80%;
+            }
+            .group-category ul li{
+              height:17.7rem;
+            }
+            .group-category ul li:nth-child(1){
+              gap:8.8%;
+            }
+            .group-category ul li:nth-child(2){
+              gap:2.3%;
+            }
+            .group-category ul li:nth-child(3){
+              gap:0;
+            }
+            .group-category ul li:nth-child(4){
+              gap:0;
+            }
+            .same-pic{
+              height:74%;
+            }
+
+            .fur-slider {
+              flex: 0 0 29.11%;
+            }
+          }
+    /* ---------------------------------------------------600px max------------------------------------------- */
+          @media(max-width:600px){
+            nav ul li:nth-child(1) {
+              flex: 1 0 29%; 
+            }
+            .cart a input {
+              right: 4.1rem;
+            }
+            .categories ul{
+              gap:4.1rem;
+            }
+
+            .randi{
+              top:25.8rem;
+            }
+            #chadi-list{
+              left:36%;
+            }
+            #app-list{
+              left:58%;
+            }
+            #fur-list{
+              left:78%;
+            }
+            #toy-list{
+              left:53%;
+            }
+            #acc-list{
+              left:77%;
+            }
+             
+            .group-category ul {
+              grid-template-columns: 1fr 1fr;
+            }
+            .group-category ul li {
+              height: 16.7rem;
+            }
+            .group-category ul li:nth-child(1) {
+              gap: 3.8%;
+            }
+            .tv-pic {
+              height: 96%;
+            }
+            .group-category ul li:nth-child(2) {
+              gap: 0%;
+            }
+
+            .fur-category {
+             height: 30vw;
+            }
+            .fur-slider {
+              flex: 0 0 32.79%;
+            }
+          }
+    /* ----------------------------------------------500px max------------------------------------------------------- */
+          @media(max-width:500px){
+            nav ul li:nth-child(1) {
+              flex: 1 0 100%; 
+            }
+            nav ul li:nth-child(2) {
+              flex: 1 0 97%; 
+            }
+            .searching button{
+              margin-left:26px;
+            }
+            .searching input{
+              width:80%;
+              margin-left:20px;
+            }
+            .download-section ul {
+              top: 9.3rem;
+            }
+            .form {
+              top: 9.1rem;
+            }
+            .cart a input {
+              right: 3.1rem;
+              top: 7.4rem;
+            }
+            .categories ul{
+              gap:4.1rem;
+            }
+
+            .randi{
+              top:26.6rem;
+            }
+            #acc-list{
+              left:72%;
+            }
+             
+            .group-category ul li:nth-child(1) {
+              gap: 7.3%;
+            }
+            .group-category ul {
+              grid-template-columns: 1fr 1fr;
+            }
+            .group-category ul li {
+              height: 16.7rem;
+            }
+            .tv-pic {
+              height: 96%;
+            }
+            .group-category ul li:nth-child(3) {
+              gap: 2%;
+            }
+             
+            .fur-head h1 {
+              font-size: 140%;
+            }
+
+            .fur-category {
+             height: 40vw;
+            }
+            .fur-slider {
+              flex: 0 0 37.93%;
+            }
+          }
+  /* ------------------------------------------------------400px max---------------------------------------------- */
+          @media(max-width:400px){
+               /* --------------------------------------------nav--------------------------------- */
+          nav ul li a h1{
+           padding:8px;
+          }
+
+          .searching input{
+            margin-left:6px;
+            width: 82%;
+          }
+          .dhundo{
+            padding-right:5px;
+            margin-left:-13px;
+          }
+          
+          .logotextonly{
+            width:7rem;
+            margin-left:-14px;
+          }
+           
+          .logotextonly p{
+            font-size:1rem;
+          }
+          .download-section ul {
+            top:10rem;
+          }
+          .download-section ul li{
+            font-size:0.8rem;
+            width:5rem !important;
+            margin:0 2px 3px 0;
+          }
+          .download-section ul li a p1{
+            display:none;
+          }
+          .logotext{
+            margin-left:5px;
+          }
+          .logotext p{
+            font-size:1rem;
+          }
+          .Profile:hover .form{
+            display:none;
+          }
+          .form{
+           top:8.6rem;
+           left:9.5rem;
+          }
+          .cart{
+            margin-top:-3px;
+          }
+          .cart a{
+            font-size:1rem;
+            line-height:19px;
+          }
+          .cart-symbol{
+            height:1.4rem;
+          }
+          .cart a input{
+            top:8.2rem;
+            right:2.2rem;
+            width:1rem;
+            font-size:0.7rem;
+          }
+          .prev-btn, .next-btn{
+            padding: 0.3rem 0.5rem;
+          }
+          .categories ul{
+            gap:4.1rem;
+          }
+
+          .categories ul li{
+            padding-left:45px;
+          }
+          .categories ul li img{
+            height:55px;
+          }
+          .categories ul li p{
+            font-size:0.7rem;
+          }
+          #acc-list{
+            left:67%;
+          }
+          .categories ul li:nth-child(3):hover #chadi-list{
+        visibility: hidden;
+       }
+
+       .categories ul li:nth-child(4):hover #app-list{
+        visibility: hidden;
+       }
+
+       .categories ul li:nth-child(5):hover #fur-list{
+        visibility: hidden;
+       }
+
+       .categories ul li:nth-child(9):hover #toy-list{
+        visibility: hidden;
+       }
+
+       .categories ul li:nth-child(10):hover #acc-list{
+        visibility: hidden;
+       }
+          .categories ul li svg{
+            display:none;
+          }
+          .group-category ul{
+            grid-template-columns: 1fr;
+          }
+          .group-category ul li:nth-child(1){
+            gap: 7%;
+          }
+          .tv-pic {
+            height: 98%;
+          }
+          .group-category ul li:nth-child(2){
+            gap: 1.3%;
+          }
+          .group-category ul li:nth-child(3){
+            gap: 1.3%;
+          }
+          .group-category ul li:nth-child(4){
+            gap: 1%;
+          }
+          .group-category ul li {
+            height: 18.7rem;
+          }
+          .fur-head h1{
+            margin-top:0.5%;
+            font-size:100%;
+          }
+          .fur-head svg{
+            height:12px;
+          }
+          .previous-btn,
+          .nexts-btn{
+            padding: 0.3rem 0.5rem;
+          }
+          .fur-category{
+            height:48vw;
+          }
+          .fur-contain{
+            column-gap:3.4%;
+          }
+          .fur-slider{
+            flex:0 0 43.48%;
+          }
+          .fur-slider p{
+            font-size:80%;
+          }
+          .fur-slider h4{
+            font-size:67%;
+          }
+          .fur-slider button{
+            font-size:60%;
+            font-weight:bold;
+          }
+                  /* -------------------------------------------footer-------------------------- */
+          footer{
+            font-size:64%;
+            flex-direction:column;
+          }
+         }
+  /* ------------------------------------------------320px max------------------------------------------- */
+          @media(max-width:320px){
+            .searching{
+              width:16.5rem;
+            }
+            .searching input{
+              width:15.5rem;
+            }
+          }
+    </style>
+</head>
+
+<body>
+    <header class="header-parent">
+      <nav class="navbar">
+        <ul>
+          <li><a href="file:///home/format/Documents/Ashish/ShopKaro.html" target="_blank"><h1><strong>ShopKaro</strong></h1></a></li> 
+          <li class="searching">
+            <form action="">
+              <input type="text" placeholder="SOCH MAT LE KE DEKH">
+              <button type="search">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="dhundo" viewBox="0 0 16 16">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                </svg>
+              </button>
+            </form>
+          </li> 
+           
+          <li>
+            <div class="download-section">
+              <div class="logotextonly">
+               <p>Download</p>
+               <svg xmlns="http://www.w3.org/2000/svg"  font-weight="bold" width="22" height="22" fill="currentColor" class="phone" viewBox="0 0 16 16">
+                 <path d="M11 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h6zM5 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H5z"/>
+                 <path d="M8 14a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
+               </svg>
+               <p>ShopKaro</p>
+              </div>
+              <center>
+               <ul class="down-section">
+                 <li style="color:rgb(95, 95, 160);height:1.3rem;margin-bottom:11px;"><b>Download From</b></li>
+                 <li class="play-iphone"><a href="https://www.youtube.com/watch?v=3zeNc1ocg7s"> <p style="font-size:12px">Get it on </p>
+                   <svg xmlns="http://www.w3.org/2000/svg" width="22" viewBox="0 0 16 16" id="google-play"><path fill="#2196F3" d="M8.32 7.68.58 15.42c-.37-.35-.57-.83-.57-1.35V1.93C.01 1.4.22.92.6.56l7.72 7.12z"></path><path fill="#FFC107" d="M15.01 8c0 .7-.38 1.32-1.01 1.67l-2.2 1.22-2.73-2.52-.75-.69 2.89-2.89L14 6.33c.63.35 1.01.97 1.01 1.67z"></path><path fill="#4CAF50" d="M8.32 7.68.6.56C.7.46.83.37.96.29 1.59-.09 2.35-.1 3 .26l8.21 4.53-2.89 2.89z"></path><path fill="#F44336" d="M11.8 10.89 3 15.74c-.31.18-.66.26-1 .26-.36 0-.72-.09-1.04-.29a1.82 1.82 0 0 1-.38-.29l7.74-7.74.75.69 2.73 2.52z"></path></svg>
+                   <p1 class="none">Playstore</p1> </a>
+                 </li>
+                 <li class="play-iphone"><a href="https://www.youtube.com/watch?v=tVG6qEa_WXU"> <p style="font-size:12px">Get it on </p> 
+                   <svg xmlns="http://www.w3.org/2000/svg" width="22" viewBox="0 0 496.255 608.728" id="apple"><path fill="#999" d="M273.81 52.973C313.806.257 369.41 0 369.41 0s8.271 49.562-31.463 97.306c-42.426 50.98-90.649 42.638-90.649 42.638s-9.055-40.094 26.512-86.971zM252.385 174.662c20.576 0 58.764-28.284 108.471-28.284 85.562 0 119.222 60.883 119.222 60.883s-65.833 33.659-65.833 115.331c0 92.133 82.01 123.885 82.01 123.885s-57.328 161.357-134.762 161.357c-35.565 0-63.215-23.967-100.688-23.967-38.188 0-76.084 24.861-100.766 24.861C89.33 608.73 0 455.666 0 332.628c0-121.052 75.612-184.554 146.533-184.554 46.105 0 81.883 26.588 105.852 26.588z"></path></svg>
+                   <p1 class="none">Appstore</p1></a>
+                 </li>
+               </ul>
+              </center>
+            </div>
+          </li>
+
+          <li>
+            <div class="Profile">
+              <center>
+              <div class="logotext"> <a href="">
+                <p>Profile</p>
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="currentColor" class="person" viewBox="0 0 16 16">
+                  <path d="M12.5 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Zm.5-5v1h1a.5.5 0 0 1 0 1h-1v1a.5.5 0 0 1-1 0v-1h-1a.5.5 0 0 1 0-1h1v-1a.5.5 0 0 1 1 0Zm-2-6a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM8 7a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z"/>
+                  <path d="M8.256 14a4.474 4.474 0 0 1-.229-1.004H3c.001-.246.154-.986.832-1.664C4.484 10.68 5.711 10 8 10c.26 0 .507.009.74.025.226-.341.496-.65.804-.918C9.077 9.038 8.564 9 8 9c-5 0-6 3-6 4s1 1 1 1h5.256Z"/>
+                </svg>
+                </a>
+              </div> 
+            </center>
+              <div class="form">              
+                <h2>Login form</h2>               
+                <input type="text" placeholder="User">
+                <input type="password" placeholder="Password">
+                <button class="submit">
+                 <p> Submit</p>
+                </button>
+                <a href="#">Forget password</a>
+                <a href="#">Sign Up</a>
+              </div>
+            </div>
+          </li>
+
+          <li>
+            <center>
+            <div class="cart">
+            <a href="#" >
+              Cart
+            
+            <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="cart-symbol" viewBox="0 0 16 16">
+                <path d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .491.592l-1.5 8A.5.5 0 0 1 13 12H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l1.313 7h8.17l1.313-7H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </svg>
+            <input type="text" value="0" class="cart-count" readonly>
+          </a>
+          </div>
+        </center>
+          </li>
+      </ul>
+      </nav>
+    </header>
+    
+ <!---------------------------------------------------- yaha se Snap scroller challu hoga -------------------------------->
+    <section class="slider-container">
+      <div class="slider">
+        <div class="slide">
+          <img src="https://sslimages.shoppersstop.com/sys-master/root/hb5/h60/30352146825246/janasya--static-1840x500--weB---2023--07-07-new-sponsored-brands.jpg" alt="">
+        </div>
+        <div class="slide">
+          <img src="https://sslimages.shoppersstop.com/sys-master/root/h04/h69/30352170909726/TH-web--ck-sponsored-brand-hp-page-2023-07-07.jpg" alt="">
+        </div>
+        <div class="slide">
+          <img src="https://sslimages.shoppersstop.com/sys-master/root/h63/hc2/30177679278110/Juniper-web--2023-06--12-sp-brands_hp-wom.jpg" alt="">
+        </div>
+        <div class="slide">
+          <img src="https://sslimages.shoppersstop.com/sys-master/root/h9f/h4e/30214268616734/puma-static-web_vad190623f.jpg" alt="">
+        </div>
+      </div>
+      <button class="prev-btn" onclick="prevSlide()">Previous</button>
+      <button class="next-btn" onclick="nextSlide()">Next</button>
+    </section>
+<!-- -------------------------------------------- Categories ka Randi Rona chalu hoga------------------------------------->
+   <div class="categories">
+      <ul>
+        <li><a href="">
+          <img src="https://cdn-icons-png.flaticon.com/512/3724/3724763.png"  alt="">
+          <div class="symbol-text"></div>
+          <p>Grocery</p>
+        </a>
+         </li>
+        <li><a href="">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRiVMr2WHIuPc1X6-HR8q103BXuEZOjf7-k6_YLjWkzesJLoMbCIVsPAQStpPgAahQNEM8&usqp=CAU"  alt="">
+          <p>Mobiles</p>
+        </a>
+        </li>
+        <li><a href="">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRkbnk5NVPW2gZqYRjenjQLorUGhOv0hvI1AQ&usqp=CAU"  alt="">
+          <p>Fashion
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"  class="symbol-down" viewBox="0 0 16 16">
+              <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+            </svg>
+          </p>
+          <ul id="chadi-list" class="randi">
+            <li><a href="">Mens Top Wear</a></li>
+            <li><a href="">
+              Mens <br>Bottom Wear
+            </a></li>
+            <li><a href="">
+              Mens Foot Wear
+            </a></li>
+            <li><a href="">
+              Womens<br> Top Wear
+            </a></li>
+            <li><a href="">
+              Womens<br> Bottom Wear
+            </a></li>
+            <li><a href="">
+              Womens<br> Foot Wear
+            </a></li>
+            <li><a href="">
+              Kids Clothes
+            </a></li>
+          </ul>
+        </a>
+        </li>
+        <li ><a href="">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhNVBSshiELHfTfM44UZSLJCn0g5PYcBH_Mw&usqp=CAU"  alt="">
+          <p>Electronics
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"  class="symbol-down" viewBox="0 0 16 16">
+              <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+            </svg>
+          </p>
+          <ul id="app-list" class="randi">
+            <li><a href="">
+              Computer<br> Peripheral 
+            </a></li>
+            <li><a href="">
+             Gaming Setup
+            </a></li>
+            <li><a href="">
+             Mobile <br>Accesssory
+            </a></li>
+            <li><a href="">
+             Laptop <br>and Desktop
+            </a></li>
+            <li><a href="">
+              Health <br>and Care
+            </a></li>
+            <li><a href="">
+             Storage
+            </a></li>
+          </ul>
+        </a>
+        </li>
+        <li><a href="">
+          <img src="https://rukminim2.flixcart.com/image/612/612/l05lx8w0/recliner/9/q/2/1-seater-sangria-leatherette-wrclsgrn1lrsg-wakefit-sangria-original-imagcybpgkny9ucc.jpeg?q=70"  alt="">
+          <p>Furnitures
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"  class="symbol-down" viewBox="0 0 16 16">
+              <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+            </svg>
+          </p>
+          <ul id="fur-list" class="randi">
+            <li><a href="">
+              Living Room<br> Furniture
+            </a></li>
+            <li><a href="">
+             Bedroom <br>Furniture
+            </a></li>
+            <li><a href="">
+             Kitchen/<br>Dinning
+            </a></li>
+            <li><a href="">
+              Furniture <br>studio
+            </a></li>
+            <li><a href="">
+             Tools and<br> Utility
+            </a></li>
+            <li><a href="">
+              Home Decor
+            </a></li>
+            <li><a href="">
+            Cleaning Bath
+            </a></li>
+          </ul>
+        </a>
+        </li>
+      
+        <li><a href="">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSIpb-40SWFe2-KuMP6h-9TkkdQiyUky63hhg&usqp=CAU"  alt="">
+          <p>Appliances</p>
+        </a>
+        </li>
+        <li><a href="">
+          <img src="https://rukminim1.flixcart.com/flap/64/64/image/71050627a56b4693.png?q=100"  alt="">
+          <p>Travel</p>
+        </a>
+        </li>
+        <li><a href="">
+          <img src="https://rukminim1.flixcart.com/flap/64/64/image/f15c02bfeb02d15d.png?q=100"  alt="">
+          <p>Offers</p>
+        </a>
+        </li>
+        <li><a href="">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTx5mlQh6V4BEWxtbDDs_7g18Dptge_12lHWg&usqp=CAU"  alt="">
+          <p>Toys
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"  class="symbol-down" viewBox="0 0 16 16">
+              <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+            </svg>
+          </p>
+          <ul id="toy-list" class="randi">
+            <li><a href="">
+              Cricket Kit
+            </a></li>
+            <li><a href="">
+             Cycle
+            </a></li>
+            <li><a href="">
+             Puzzle
+            </a></li>
+            <li><a href="">
+              Board Games
+            </a></li>
+            <li><a href="">
+             Sports & <br>Fittness
+            </a></li>
+          </ul>
+        </a>
+        </li>
+        <li><a href="">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyM9QoLiB0kIxvIxgy4n-VY4fODxeTiD5vgQ&usqp=CAU"  alt="">
+          <p>Accessories
+            <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12"  class="symbol-down" viewBox="0 0 16 16">
+              <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+            </svg>
+          </p>
+          <ul id="acc-list" class="randi">
+            <li><a href="">
+              Mens Grooming
+            </a></li>
+            <li><a href="">
+              Womens <br>Grooming
+            </a></li>
+            <li><a href="">
+              Headphones<br>
+              & Earphones
+            </a></li>
+            <li><a href="">
+              Rings and<br>
+              Bracelets
+            </a></li>
+            <li><a href="">
+              Watches 
+            </a></li>
+          </ul>
+        </a>
+        </li>
+      </ul>
+  </div>
+<!-----------------------------------------------Highest-deal------------------------------------------------------- -->
+<section class="highest-deal">
+  <img src="https://sslimages.shoppersstop.com/sys-master/root/hb2/hab/30576706289694/highest-deal-ever-web_040823.gif" class="deals" alt="">
+</section>
+<!----------------------------------------------------Group-category---------------------------------------------------->
+<section class="group-category">
+ <ul>
+   <li>
+     <h4>Up to 70% off | Clearance store</h4>
+     <a href=""><img class="tv-pic" src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/Electronics/Clearance/Clearance_store_Desktop_CC_1x._SY304_CB628315133_.jpg" alt=""></a>
+     <a href="https://www.amazon.in/s?rh=n%3A20538600031&language=en_IN&brr=1&rd=1">See More</a>
+   </li>
+   <li>
+     <h4>Up to 60% off Men Clothing</h4>
+     <div>
+      <a href=""><img class="same-pic" src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/Fashion/Gateway/BAU/BTF-Refresh/May/PF_MF/MF-1-186-116._SY116_CB636110853_.jpg" alt="">Clothing</a>
+      <a href=""><img class="same-pic" src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/Fashion/Gateway/BAU/BTF-Refresh/May/PF_MF/MF-4-186-116._SY116_CB636110853_.jpg" alt="">Bags </a>
+      <a href=""><img class="same-pic" src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/Fashion/Gateway/BAU/BTF-Refresh/May/PF_MF/MF-2-186-116._SY116_CB636110853_.jpg" alt="">Footwear</a>
+      <a href=""><img class="same-pic" src="https://images-eu.ssl-images-amazon.com/images/G/31/img22/Fashion/Gateway/BAU/BTF-Refresh/May/PF_MF/MF-3-186-116._SY116_CB636110853_.jpg" alt="">Watches</a>
+     </div>
+     <a href="https://www.amazon.in/s?rh=n%3A20538600031&language=en_IN&brr=1&rd=1">See More Offers</a>
+   </li>
+   <li>
+     <h4>Appliances Up to 55% off</h4>
+     <div>
+       <a href=""><img class="same-pic" src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08345R1ZW._SY116_CB667322346_.jpg" alt="">Refigerators</a>
+       <a href=""><img class="same-pic" src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B08RDL6H79._SY116_CB667322346_.jpg" alt="">Cooler</a>
+       <a href=""><img class="same-pic" src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/Appliances-QC-PC-186x116--B07G5J5FYP._SY116_CB667322346_.jpg" alt="">Microwaves</a>
+       <a href=""><img class="same-pic" src="https://images-eu.ssl-images-amazon.com/images/G/31/IMG15/Irfan/GATEWAY/MSO/186x116---wm._SY116_CB667322346_.jpg" alt="">Washer</a>
+     </div>
+     <a href="https://www.amazon.in/s?rh=n%3A20538600031&language=en_IN&brr=1&rd=1">See More</a>
+   </li>
+   <li>
+     <h4>Offers on travel tickets</h4>
+     <div>
+       <a href=""><img class="same-pic" src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/AmazonPay/PD23/QC/Flight_186x116._SY116_CB600937888_.jpg" alt="">5000rs Off</a>
+       <a href=""><img class="same-pic" src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/AmazonPay/PD23/QC/Train_186x116._SY116_CB600937888_.jpg" alt="">Train Tickets</a>
+       <a href=""><img class="same-pic" src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/AmazonPay/PD23/QC/Bus_186x116._SY116_CB600937888_.jpg" alt="">Bus Ticket</a>
+       <a href=""><img class="same-pic" src="https://images-eu.ssl-images-amazon.com/images/G/31/img23/AmazonPay/PD23/QC/SW_186x116._SY116_CB600937888_.jpg" alt="">Lucky Spin</a>
+     </div>
+     <a href="https://www.amazon.in/s?rh=n%3A20538600031&language=en_IN&brr=1&rd=1">See More</a>
+   </li>
+ </ul>
+</section>
+<!-- -------------------------------------------furniture hai------------------------------------------------------------>
+<div class="fur-head">
+  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" color="orange" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+  </svg>
+  
+  <h1>Top Handpicked Furniture</h1>
+  <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" color="orange" fill="currentColor" class="bi bi-star-fill" viewBox="0 0 16 16">
+    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.282.95l-3.522 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"/>
+  </svg>
+  
+</div>
+<!-- -----------------------------------------------------fur-category------------------------------------------------>
+<section class="fur-category">
+  <div class="fur-contain">
+    
+     <div class="fur-slider">
+       <img src="https://m.media-amazon.com/images/I/61dVJqxBYuL._AC_UL400_.jpg" alt="">
+       <h4>Product 1</h4>
+       <p>$10.99</p>
+       <button class="add-to-cart">Add to Cart</button>
+     </div>
+     <div class="fur-slider">
+       <img src="https://m.media-amazon.com/images/I/61Skuna7nfL._AC_UL400_.jpg" alt="">
+       <h4>Product 2</h4>
+       <p>$10.99</p>
+       <button class="add-to-cart">Add to Cart</button>
+     </div>
+     <div class="fur-slider">
+       <img src="https://m.media-amazon.com/images/I/714+-zIViaL._AC_UL400_.jpg" alt="">
+       <h4>Product 3</h4>
+       <p>$10.99</p>
+       <button class="add-to-cart">Add to Cart</button>
+     </div>
+     <div class="fur-slider">
+       <img src="https://m.media-amazon.com/images/I/81WatB0YQeS._AC_UL400_.jpg" alt="">
+       <h4>Product 4</h4>
+       <p>$10.99</p>
+       <button class="add-to-cart">Add to Cart</button>
+     </div>
+     <div class="fur-slider">
+       <img src="https://m.media-amazon.com/images/I/91eCTnunJeL._AC_UL400_.jpg" alt="">
+       <h4>Product 5</h4>
+       <p>$10.99</p>
+       <button class="add-to-cart">Add to Cart</button>
+     </div>
+     <div class="fur-slider">
+       <img src="https://m.media-amazon.com/images/I/71b3Mhvp1JL._AC_UL400_.jpg" alt="">
+       <h4>Product 6</h4>
+       <p>$10.99</p>
+       <button class="add-to-cart">Add to Cart</button>
+     </div>
+     <div class="fur-slider">
+       <img src="https://m.media-amazon.com/images/I/71XBTjfkR4L._AC_UL400_.jpg" alt="">
+       <h4>Product 7</h4>
+       <p>$10.99</p>
+       <button class="add-to-cart">Add to Cart</button>
+     </div>
+     <div class="fur-slider">
+       <img src="https://m.media-amazon.com/images/I/412d1TO1QsL._AC_UL400_.jpg" alt="">
+       <h4>Product 8</h4>
+       <p>$10.99</p>
+       <button class="add-to-cart">Add to Cart</button>
+     </div>
+     <div class="fur-slider">
+       <img src="https://m.media-amazon.com/images/I/51nSL73nuZL._AC_UL400_.jpg" alt="">
+       <h4>Product 9</h4>
+       <p>$10.99</p>
+       <button class="add-to-cart">Add to Cart</button>
+     </div>
+     <div class="fur-slider">
+       <img src="https://m.media-amazon.com/images/I/91eCTnunJeL._AC_UL400_.jpg" alt="">
+       <h4>Product 10</h4>
+       <p>$10.99</p>
+       <button class="add-to-cart">Add to Cart</button>
+     </div>
+    
+  </div>
+  <button class="previous-btn" id="prevBtn">Previous</button>
+  <button class="nexts-btn" id="nextBtn">Next</button>
+</section>
+<footer>
+  <div>
+  <a href="#">Condition of Use</a>
+  <a href="#">Privacy Notice</a>
+  <a href="">Interest Based Ads</a>
+</div>
+<p>© 1996-2023, ShopKaro.com, Inc. or its affiliates</p>
+</footer>
+<script>
+  // -----------------------------------------------------cart-logonum-input wala hai-----------------------------------
+    const addToCartButtons = document.querySelectorAll('.add-to-cart');
+     const cartCountInput = document.querySelector('.cart-count');
+     
+     let cartCount = 0;
+     
+     addToCartButtons.forEach(button => {
+       button.addEventListener('click', addToCart);
+     });
+     
+     function addToCart() {
+       cartCount++;
+       if (cartCount === 1) {
+         cartCountInput.style.display = 'flex';
+       }
+       cartCountInput.value = cartCount;
+     }
+
+// --------------------------------------------- // Snap scroller ka javascript hai---------------------------------------
+     let currentSlide = 0;
+
+     function showSlide(index) {
+       const slider = document.querySelector('.slider');
+       const slideWidth = slider.offsetWidth;
+       slider.style.transform = `translateX(-${index * slideWidth}px)`;
+     }
+     
+     function prevSlide() {
+       currentSlide = Math.max(currentSlide - 1, 0);
+       showSlide(currentSlide);
+     }
+     
+     function nextSlide() {
+       const totalSlides = document.querySelectorAll('.slide').length;
+       currentSlide = Math.min(currentSlide + 1, totalSlides - 1);
+       showSlide(currentSlide);
+     }
+// ---------------------------------------------------fur-category--------------------------------------------------------
+const prevBtn = document.getElementById('prevBtn');
+const nextBtn = document.getElementById('nextBtn');
+const slideContainer = document.querySelector('.fur-contain');
+const slides = document.querySelectorAll('.fur-slider');
+
+let currentIndex = 0;
+
+prevBtn.addEventListener('click', () => {
+  if (currentIndex > 0) {
+    currentIndex--;
+    slideContainer.style.transform = `translateX(-${(currentIndex) * 172.5}px)`; // Slide width
+  }
+});
+
+nextBtn.addEventListener('click', () => {
+  if (currentIndex < slides.length - 1) {
+    currentIndex++;
+    slideContainer.style.transform = `translateX(-${(currentIndex) * 172.5}px)`; // Slide width
+  }
+});
+</script>
+</body>
+
+</html>
